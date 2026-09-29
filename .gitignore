@@ -1,0 +1,99 @@
+# =========================
+# .NET
+# =========================
+
+**/bin/
+**/obj/
+**/out/
+**/TestResults/
+**/packages/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio
+.vs/
+.vscode/
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# =========================
+# Build / Coverage
+# =========================
+
+coverage/
+.coverage
+*.coverage
+*.coveragexml
+
+# =========================
+# NuGet
+# =========================
+
+*.nupkg
+*.snupkg
+.nuget/
+
+# =========================
+# Logs
+# =========================
+
+*.log
+logs/
+
+# =========================
+# Environment / Secrets
+# =========================
+
+.env
+.env.*
+!.env.example
+
+# Local development settings
+appsettings.Local.json
+appsettings.Development.local.json
+
+# =========================
+# Docker
+# =========================
+
+docker-compose.override.yml
+
+# Docker volumes / local data
+data/
+docker-data/
+
+# =========================
+# Databases / Local persistence
+# =========================
+
+*.db
+*.sqlite
+*.sqlite3
+
+# =========================
+# OS
+# =========================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Temporary files
+# =========================
+
+*.tmp
+*.temp
+*.swp
+*.bak
+*~
+
+# =========================
+# Generated documentation
+# =========================
+
+*.generated.md
