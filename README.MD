@@ -1,138 +1,114 @@
 # Desafio Arquitetura de Software
 
-Projeto desenvolvido para o desafio de arquitetura de software, com foco no registro de movimentações financeiras e consulta do saldo consolidado de uma conta.
+Projeto desenvolvido para o desafio de arquitetura de software.
+
+O objetivo deste README é explicar como executar o projeto localmente e realizar os testes. As decisões arquiteturais e seus respectivos trade-offs estão documentados em `docs/adr`.
 
 ## Repositório
 
 https://github.com/AlanSiqma/desafio-arquitetura-software
 
-## Arquitetura
-
-A solução é composta por dois microserviços:
-
-- `DesafioArquiteturaSoftware.Api`
-  - Responsável pelas operações de escrita.
-  - Criação de movimentações financeiras.
-  - Atualização de movimentações.
-  - Exclusão lógica de movimentações.
-  - Controle de idempotência.
-  - Controle de concorrência.
-
-- `DesafioArquiteturaSoftware.Query`
-  - Responsável exclusivamente pelas consultas.
-  - Consulta do saldo consolidado de uma conta.
-  - Consulta do saldo em um determinado momento.
-  - Utiliza Dapper para acesso ao banco de leitura.
-
-A persistência utiliza PostgreSQL com replicação de leitura.
-
-Fluxo simplificado:
-
-```text
-                         +------------------+
-                         |     Cliente      |
-                         +--------+---------+
-                                  |
-                    +-------------+-------------+
-                    |                           |
-                    v                           v
-          +------------------+        +------------------+
-          |    Write API     |        |    Query API     |
-          |                  |        |                  |
-          | EF Core          |        | Dapper           |
-          +--------+---------+        +--------+---------+
-                   |                           |
-                   v                           v
-          +------------------+        +------------------+
-          | PostgreSQL       |        | PostgreSQL       |
-          | Primary          |------->| Read Replica     |
-          +------------------+        +------------------+
-                    Streaming Replication
-```
-
-## Tecnologias
-
-- C#
-- .NET
-- ASP.NET Core Minimal API
-- Entity Framework Core
-- Dapper
-- PostgreSQL
-- Npgsql
-- Docker
-- Docker Compose
-- xUnit
-- Moq
-- Postman
-
 ## Pré-requisitos
 
-Para executar o projeto localmente, é necessário ter instalado:
+Instale:
 
 - .NET SDK
 - Docker Desktop
 - Git
-- Postman (opcional, para testes manuais)
+- Postman (opcional)
+
+Confirme as instalações:
+
+```powershell
+dotnet --version
+docker --version
+docker compose version
+git --version
+```
 
 ## Clonar o projeto
 
-```bash
+```powershell
 git clone https://github.com/AlanSiqma/desafio-arquitetura-software.git
 cd desafio-arquitetura-software
 ```
 
-## 1. Subir a infraestrutura com Docker Compose
+## 1. Subir o PostgreSQL
 
 Na raiz do projeto, execute:
 
-```bash
+```powershell
 docker compose up -d
 ```
 
-Verifique os containers:
+Verifique se os containers estão em execução:
 
-```bash
+```powershell
 docker compose ps
 ```
 
-Para visualizar os logs:
+Para acompanhar os logs:
 
-```bash
-docker compose logs
-```
-
-Para acompanhar os logs em tempo real:
-
-```bash
+```powershell
 docker compose logs -f
 ```
 
-A infraestrutura deve permanecer em execução enquanto as APIs estiverem sendo executadas localmente.
+Para consultar os logs de um serviço específico:
 
-Para parar a infraestrutura:
+```powershell
+docker compose logs -f <nome-do-servico>
+```
 
-```bash
+A infraestrutura deve estar em execução antes de iniciar as APIs.
+
+### Parar o PostgreSQL
+
+```powershell
 docker compose down
 ```
 
-Para recriar os containers:
+Para remover também os volumes:
 
-```bash
-docker compose down
-docker compose up -d
+```powershell
+docker compose down -v
 ```
 
-## 2. Executar a Write API
+> `docker compose down -v` remove os dados persistidos nos volumes do ambiente local.
 
-Abra um terminal na raiz do projeto e execute:
+## 2. Configuração da Write API
 
-```bash
-dotnet run --project src/DesafioArquiteturaSoftware.Api
+A Write API utiliza o PostgreSQL Primary.
+
+A configuração da conexão com o banco está no arquivo de configuração da aplicação:
+
+```text
+src/DesafioArquiteturaSoftware.Api/appsettings.json
 ```
 
-A Write API é responsável pelas operações de escrita.
+Antes de executar a aplicação, confirme que a connection string aponta para o PostgreSQL Primary iniciado pelo Docker Compose.
 
-Endpoints:
+As migrations do Entity Framework Core são aplicadas pela aplicação durante a inicialização.
+
+## 3. Executar a Write API
+
+Abra um terminal na raiz do projeto:
+
+```powershell
+dotnet run --project .\src\DesafioArquiteturaSoftware.Api
+```
+
+A porta utilizada será a configurada no projeto, normalmente apresentada no terminal ao iniciar a aplicação.
+
+Exemplo:
+
+```text
+Now listening on: https://localhost:XXXX
+Now listening on: http://localhost:XXXX
+```
+
+Utilize a URL apresentada pelo terminal para realizar as requisições.
+
+### Endpoints da Write API
 
 ```text
 POST   /api/transactions
@@ -142,11 +118,12 @@ DELETE /api/transactions/{id}
 
 ### Criar uma transação
 
-A criação exige o header de idempotência:
+Request:
 
 ```http
-Idempotency-Key: minha-chave-123
+POST /api/transactions
 Content-Type: application/json
+Idempotency-Key: <chave-unica>
 ```
 
 Body:
@@ -160,12 +137,14 @@ Body:
 }
 ```
 
-Tipos de movimentação:
+Tipos:
 
 ```text
 1 = Credit
 2 = Debit
 ```
+
+A resposta da criação contém o identificador da movimentação criada.
 
 ### Atualizar uma transação
 
@@ -190,31 +169,49 @@ Body:
 DELETE /api/transactions/{id}
 ```
 
-A exclusão é lógica, preservando o registro no banco de dados.
+A operação é realizada através de exclusão lógica.
 
-## 3. Executar a Query API
+## 4. Configuração da Query API
 
-Em outro terminal:
+A Query API utiliza o PostgreSQL Read Replica.
 
-```bash
-dotnet run --project src/DesafioArquiteturaSoftware.Query
-```
-
-A Query API é executada separadamente da Write API.
-
-Ela utiliza a conexão configurada em:
+A configuração está em:
 
 ```text
 src/DesafioArquiteturaSoftware.Query/appsettings.json
 ```
 
-A connection string utilizada pela Query API deve apontar para o banco de leitura (`ReadDatabase`).
+A connection string utilizada pela Query API deve estar configurada na chave:
 
-### Consultar o saldo atual
+```text
+ConnectionStrings:ReadDatabase
+```
 
-Endpoint:
+Exemplo de estrutura:
 
-```http
+```json
+{
+  "ConnectionStrings": {
+    "ReadDatabase": "Host=localhost;Port=<porta>;Database=<database>;Username=<usuario>;Password=<senha>"
+  }
+}
+```
+
+Utilize os valores correspondentes à Read Replica configurada no `docker-compose.yml`.
+
+## 5. Executar a Query API
+
+Abra outro terminal na raiz do projeto:
+
+```powershell
+dotnet run --project .\src\DesafioArquiteturaSoftware.Query
+```
+
+A URL da API será apresentada no terminal.
+
+### Endpoint de saldo
+
+```text
 GET /api/accounts/{accountId}/balance
 ```
 
@@ -222,6 +219,12 @@ Exemplo:
 
 ```http
 GET /api/accounts/00000000-0000-0000-0000-000000000001/balance
+```
+
+Exemplo com data:
+
+```http
+GET /api/accounts/00000000-0000-0000-0000-000000000001/balance?at=2026-09-29T19:00:00Z
 ```
 
 Exemplo de resposta:
@@ -234,56 +237,52 @@ Exemplo de resposta:
 }
 ```
 
-### Consultar o saldo em determinado momento
+## 6. Executar o fluxo completo
 
-Também é possível informar o parâmetro `at`:
+Para testar o sistema do início ao fim:
 
-```http
-GET /api/accounts/{accountId}/balance?at=2026-09-29T19:00:00Z
-```
+### Terminal 1 — Infraestrutura
 
-Exemplo:
+Na raiz:
 
-```http
-GET /api/accounts/00000000-0000-0000-0000-000000000001/balance?at=2026-09-29T19:00:00Z
-```
-
-## 4. Fluxo completo para teste
-
-Para validar o ambiente localmente, siga esta ordem.
-
-### Passo 1 — Subir o PostgreSQL
-
-Na raiz do projeto:
-
-```bash
+```powershell
 docker compose up -d
 ```
 
-Verifique:
+Confirme:
 
-```bash
+```powershell
 docker compose ps
 ```
 
-### Passo 2 — Iniciar a Write API
+### Terminal 2 — Write API
 
-Em um terminal:
-
-```bash
-dotnet run --project src/DesafioArquiteturaSoftware.Api
+```powershell
+dotnet run --project .\src\DesafioArquiteturaSoftware.Api
 ```
 
-### Passo 3 — Criar uma movimentação de crédito
+Mantenha o terminal aberto.
+
+### Terminal 3 — Query API
+
+```powershell
+dotnet run --project .\src\DesafioArquiteturaSoftware.Query
+```
+
+Mantenha o terminal aberto.
+
+### Teste de escrita
+
+Crie uma movimentação através da Write API:
 
 ```http
 POST /api/transactions
 ```
 
-Header:
+Com:
 
 ```text
-Idempotency-Key: credito-001
+Idempotency-Key: <chave-unica>
 ```
 
 Body:
@@ -297,19 +296,7 @@ Body:
 }
 ```
 
-### Passo 4 — Criar uma movimentação de débito
-
-```http
-POST /api/transactions
-```
-
-Header:
-
-```text
-Idempotency-Key: debito-001
-```
-
-Body:
+Crie também um débito:
 
 ```json
 {
@@ -320,81 +307,41 @@ Body:
 }
 ```
 
-### Passo 5 — Iniciar a Query API
+### Teste de leitura
 
-Em outro terminal:
-
-```bash
-dotnet run --project src/DesafioArquiteturaSoftware.Query
-```
-
-### Passo 6 — Consultar o saldo
+Depois das movimentações estarem disponíveis na Read Replica:
 
 ```http
 GET /api/accounts/00000000-0000-0000-0000-000000000001/balance
 ```
 
-O saldo é calculado considerando:
+O resultado será calculado a partir das movimentações disponíveis no banco de leitura.
 
-```text
-Crédito → + valor
-Débito  → - valor
-```
+## 7. Postman
 
-## 5. Testes automatizados
-
-Para executar todos os testes:
-
-```bash
-dotnet test
-```
-
-Para executar a solução com build:
-
-```bash
-dotnet build
-dotnet test
-```
-
-Os testes estão organizados entre os componentes de escrita e consulta.
-
-Estrutura dos testes:
-
-```text
-src/
-├── DesafioArquiteturaSoftware.Tests/
-└── DesafioArquiteturaSoftware.Query.Tests/
-```
-
-## 6. Postman
-
-Uma collection do Postman está disponível para facilitar os testes manuais das APIs.
-
-Arquivo:
+O projeto possui uma collection para facilitar os testes manuais:
 
 ```text
 DesafioArquiteturaSoftware.postman_collection.json
 ```
 
-A collection contém:
+### Importar a collection
 
-### Write API
+No Postman:
 
-```text
-Create Transaction - Credit
-Create Transaction - Debit
-Update Transaction
-Delete Transaction
-```
-
-### Query API
+1. Abra o Postman.
+2. Clique em `Import`.
+3. Selecione o arquivo:
 
 ```text
-Get Current Account Balance
-Get Account Balance At
+DesafioArquiteturaSoftware.postman_collection.json
 ```
 
-Variáveis utilizadas:
+4. Confirme a importação.
+
+### Variáveis da collection
+
+A collection possui as seguintes variáveis:
 
 ```text
 writeUrl
@@ -403,175 +350,229 @@ accountId
 transactionId
 ```
 
-Após importar a collection no Postman, ajuste as URLs caso as APIs estejam sendo executadas em portas diferentes das configuradas na collection.
+Ajuste `writeUrl` e `queryUrl` para as URLs apresentadas pelos respectivos comandos `dotnet run`.
 
-## 7. Estrutura do projeto
-
-```text
-src/
-├── DesafioArquiteturaSoftware.Api/
-├── DesafioArquiteturaSoftware.Application/
-├── DesafioArquiteturaSoftware.Domain/
-├── DesafioArquiteturaSoftware.Infrastructure/
-├── DesafioArquiteturaSoftware.Tests/
-├── DesafioArquiteturaSoftware.Query/
-└── DesafioArquiteturaSoftware.Query.Tests/
-```
-
-### Write API
-
-A camada de escrita segue o fluxo:
+Por exemplo:
 
 ```text
-Api
- ↓
-Application
- ↓
-Domain
- ↓
-Infrastructure
- ↓
-PostgreSQL Primary
+writeUrl = https://localhost:<porta-da-write-api>
+queryUrl = https://localhost:<porta-da-query-api>
 ```
 
-### Query API
-
-A camada de consulta segue o fluxo:
+O `accountId` pode ser definido como:
 
 ```text
-Query API
- ↓
-Queries
- ↓
-Repository
- ↓
-Dapper
- ↓
-PostgreSQL Read Replica
+00000000-0000-0000-0000-000000000001
 ```
 
-A Query API não possui dependência dos projetos da Write API.
+O `transactionId` é preenchido a partir da movimentação criada.
 
-## 8. Idempotência
+### Requests disponíveis
 
-A criação de movimentações utiliza uma chave de idempotência enviada através do header:
+#### Write API
 
 ```text
-Idempotency-Key
+Create Transaction - Credit
+Create Transaction - Debit
+Update Transaction
+Delete Transaction
 ```
 
-O objetivo é evitar a criação duplicada de uma mesma operação quando uma requisição é repetida devido a retry, timeout ou instabilidade de comunicação.
-
-A chave e o hash da requisição são persistidos junto com a movimentação dentro da mesma transação.
-
-Uma nova requisição utilizando a mesma chave:
-
-- Com os mesmos dados, retorna o recurso originalmente criado.
-- Com dados diferentes, retorna conflito.
-
-## 9. Concorrência
-
-As operações de atualização utilizam controle de concorrência otimista.
-
-A entidade possui uma propriedade interna de versão:
+#### Query API
 
 ```text
-Version
+Get Current Account Balance
+Get Account Balance At
 ```
 
-A versão não faz parte do contrato público da API.
+A collection também possui testes básicos de status HTTP.
 
-Quando ocorre uma alteração concorrente detectada pelo mecanismo de persistência, a aplicação retorna conflito (`409`).
+## 8. Executar os testes automatizados
 
-## 10. Tratamento de falhas
+Na raiz do projeto:
 
-As operações de escrita utilizam transações para manter a consistência entre:
+```powershell
+dotnet test
+```
 
-- Movimentação financeira.
-- Registro de idempotência.
+Para executar o build:
 
-Em caso de falha durante a operação:
+```powershell
+dotnet build
+```
+
+Para executar ambos:
+
+```powershell
+dotnet build
+dotnet test
+```
+
+Os projetos de teste são:
 
 ```text
-Rollback
-   ↓
-Limpeza do tracking
-   ↓
-Exceção tratada pela API
+src/DesafioArquiteturaSoftware.Tests
+src/DesafioArquiteturaSoftware.Query.Tests
 ```
 
-A API também possui tratamento global de exceções para converter erros de domínio e infraestrutura em respostas HTTP apropriadas.
+## 9. Verificar o estado da infraestrutura
 
-## 11. PostgreSQL e replicação
+Ver containers:
 
-O ambiente local utiliza PostgreSQL com uma instância principal e uma instância destinada à leitura.
-
-Fluxo de persistência:
-
-```text
-Write API
-    |
-    v
-PostgreSQL Primary
-    |
-    | Streaming Replication
-    v
-PostgreSQL Read Replica
-    |
-    v
-Query API
+```powershell
+docker compose ps
 ```
 
-A Write API grava no banco principal.
+Ver todos os logs:
 
-A Query API realiza as consultas no banco de leitura.
+```powershell
+docker compose logs
+```
 
-Essa separação permite que as operações de consulta sejam escaladas independentemente das operações de escrita.
+Acompanhar logs:
 
-## 12. Parando o ambiente
+```powershell
+docker compose logs -f
+```
 
-Para parar os containers:
+Reiniciar a infraestrutura:
 
-```bash
+```powershell
 docker compose down
+docker compose up -d
 ```
 
-Para remover também os volumes persistentes:
+## 10. Problemas comuns
 
-```bash
-docker compose down -v
+### `ReadDatabase connection string was not configured`
+
+Verifique:
+
+```text
+src/DesafioArquiteturaSoftware.Query/appsettings.json
 ```
 
-> Atenção: `docker compose down -v` remove os volumes associados ao ambiente e os dados persistidos nesses volumes.
+A configuração precisa conter:
 
-## 13. Resumo dos comandos
+```json
+{
+  "ConnectionStrings": {
+    "ReadDatabase": "..."
+  }
+}
+```
 
-```bash
-# Clonar o projeto
-git clone https://github.com/AlanSiqma/desafio-arquitetura-software.git
+Também confirme que a aplicação que está sendo executada é:
 
-# Entrar no diretório
-cd desafio-arquitetura-software
+```text
+DesafioArquiteturaSoftware.Query
+```
 
-# Subir infraestrutura
+### `column ... does not exist`
+
+Esse erro normalmente indica que o SQL da Query API não corresponde aos nomes das colunas existentes no PostgreSQL.
+
+Verifique o schema do banco antes de alterar a consulta.
+
+### Query API não encontra dados recém-criados
+
+A Query API utiliza a Read Replica.
+
+Pode existir um pequeno intervalo entre a gravação no Primary e a disponibilidade da alteração na réplica.
+
+Verifique também o estado dos containers:
+
+```powershell
+docker compose ps
+```
+
+e os logs:
+
+```powershell
+docker compose logs -f
+```
+
+### Porta da API diferente da esperada
+
+A porta efetivamente utilizada é apresentada pelo `dotnet run`.
+
+Exemplo:
+
+```text
+Now listening on: https://localhost:7256
+```
+
+Use essa URL no Postman.
+
+Também é possível consultar:
+
+```text
+src/DesafioArquiteturaSoftware.Api/Properties/launchSettings.json
+src/DesafioArquiteturaSoftware.Query/Properties/launchSettings.json
+```
+
+## 11. Estrutura relacionada à execução
+
+```text
+.
+├── docker-compose.yml
+├── README.md
+├── DesafioArquiteturaSoftware.sln
+├── DesafioArquiteturaSoftware.postman_collection.json
+├── docs/
+│   └── adr/
+└── src/
+    ├── DesafioArquiteturaSoftware.Api/
+    ├── DesafioArquiteturaSoftware.Application/
+    ├── DesafioArquiteturaSoftware.Domain/
+    ├── DesafioArquiteturaSoftware.Infrastructure/
+    ├── DesafioArquiteturaSoftware.Tests/
+    ├── DesafioArquiteturaSoftware.Query/
+    └── DesafioArquiteturaSoftware.Query.Tests/
+```
+
+## 12. Execução rápida
+
+Para quem já possui o ambiente configurado:
+
+```powershell
+# 1. Subir PostgreSQL
 docker compose up -d
 
-# Verificar containers
-docker compose ps
+# 2. Terminal 1 - Write API
+dotnet run --project .\src\DesafioArquiteturaSoftware.Api
 
-# Terminal 1 - Write API
-dotnet run --project src/DesafioArquiteturaSoftware.Api
+# 3. Terminal 2 - Query API
+dotnet run --project .\src\DesafioArquiteturaSoftware.Query
 
-# Terminal 2 - Query API
-dotnet run --project src/DesafioArquiteturaSoftware.Query
-
-# Executar testes
+# 4. Terminal 3 - Testes
 dotnet test
-
-# Parar infraestrutura
-docker compose down
 ```
 
-## 14. Licença
+Depois, importe no Postman:
 
-Projeto desenvolvido para fins de avaliação técnica no desafio de arquitetura de software.
+```text
+DesafioArquiteturaSoftware.postman_collection.json
+```
+
+Configure:
+
+```text
+writeUrl
+queryUrl
+accountId
+```
+
+e execute os requests da collection.
+
+## Documentação arquitetural
+
+As decisões arquiteturais não são detalhadas neste README.
+
+Elas estão documentadas individualmente em:
+
+```text
+docs/adr/
+```
+
+Cada ADR registra o contexto, a decisão, as alternativas consideradas e as consequências da decisão.
