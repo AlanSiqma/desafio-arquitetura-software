@@ -17,3 +17,4 @@ D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoft
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Infrastructure\obj\Debug\net9.0\DesafioArquiteturaSoftware.Infrastructure.pdb
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Infrastructure\obj\Debug\net9.0\DesafioArquiteturaSoftware.Infrastructure.genruntimeconfig.cache
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Infrastructure\obj\Debug\net9.0\ref\DesafioArquiteturaSoftware.Infrastructure.dll
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Infrastructure\obj\Debug\net9.0\DesafioArquiteturaSoftware.Infrastructure.sourcelink.json

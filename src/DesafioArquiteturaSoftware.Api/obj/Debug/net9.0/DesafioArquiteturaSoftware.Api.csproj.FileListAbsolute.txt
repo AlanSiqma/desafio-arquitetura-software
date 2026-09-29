@@ -131,3 +131,4 @@ D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoft
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\DesafioArquiteturaSoftware.Api.genruntimeconfig.cache
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\ref\DesafioArquiteturaSoftware.Api.dll
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\DesafioArquiteturaSoftware.Api.sourcelink.json

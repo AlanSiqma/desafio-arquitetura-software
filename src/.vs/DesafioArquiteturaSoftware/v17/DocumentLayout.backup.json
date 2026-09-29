@@ -1,12 +1,139 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0ADE1212-C71E-4F89-B4FC-463E08277F21}|DesafioArquiteturaSoftware.Tests\\DesafioArquiteturaSoftware.Tests.csproj|d:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\desafioarquiteturasoftware.tests\\application\\commands\\deletefinancialtransaction\\deletefinancialtransactionhandlertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ADE1212-C71E-4F89-B4FC-463E08277F21}|DesafioArquiteturaSoftware.Tests\\DesafioArquiteturaSoftware.Tests.csproj|solutionrelative:desafioarquiteturasoftware.tests\\application\\commands\\deletefinancialtransaction\\deletefinancialtransactionhandlertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ADE1212-C71E-4F89-B4FC-463E08277F21}|DesafioArquiteturaSoftware.Tests\\DesafioArquiteturaSoftware.Tests.csproj|d:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\desafioarquiteturasoftware.tests\\application\\commands\\updatefinancialtransaction\\updatefinancialtransactionhandlertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ADE1212-C71E-4F89-B4FC-463E08277F21}|DesafioArquiteturaSoftware.Tests\\DesafioArquiteturaSoftware.Tests.csproj|solutionrelative:desafioarquiteturasoftware.tests\\application\\commands\\updatefinancialtransaction\\updatefinancialtransactionhandlertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ADE1212-C71E-4F89-B4FC-463E08277F21}|DesafioArquiteturaSoftware.Tests\\DesafioArquiteturaSoftware.Tests.csproj|d:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\desafioarquiteturasoftware.tests\\application\\commands\\createfinancialtransaction\\createfinancialtransactionhandlertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ADE1212-C71E-4F89-B4FC-463E08277F21}|DesafioArquiteturaSoftware.Tests\\DesafioArquiteturaSoftware.Tests.csproj|solutionrelative:desafioarquiteturasoftware.tests\\application\\commands\\createfinancialtransaction\\createfinancialtransactionhandlertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE2F4748-05B4-40ED-A88D-6F5BDD94D229}|DesafioArquiteturaSoftware.Domain\\DesafioArquiteturaSoftware.Domain.csproj|d:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\desafioarquiteturasoftware.domain\\interfaces\\ifinancialtransactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE2F4748-05B4-40ED-A88D-6F5BDD94D229}|DesafioArquiteturaSoftware.Domain\\DesafioArquiteturaSoftware.Domain.csproj|solutionrelative:desafioarquiteturasoftware.domain\\interfaces\\ifinancialtransactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C4914A0-7261-4A4A-A9D0-98371830ED95}|DesafioArquiteturaSoftware.Infrastructure\\DesafioArquiteturaSoftware.Infrastructure.csproj|d:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\desafioarquiteturasoftware.infrastructure\\data\\repository\\financialtransactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C4914A0-7261-4A4A-A9D0-98371830ED95}|DesafioArquiteturaSoftware.Infrastructure\\DesafioArquiteturaSoftware.Infrastructure.csproj|solutionrelative:desafioarquiteturasoftware.infrastructure\\data\\repository\\financialtransactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE2F4748-05B4-40ED-A88D-6F5BDD94D229}|DesafioArquiteturaSoftware.Domain\\DesafioArquiteturaSoftware.Domain.csproj|d:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\desafioarquiteturasoftware.domain\\entities\\financialtransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE2F4748-05B4-40ED-A88D-6F5BDD94D229}|DesafioArquiteturaSoftware.Domain\\DesafioArquiteturaSoftware.Domain.csproj|solutionrelative:desafioarquiteturasoftware.domain\\entities\\financialtransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ADE1212-C71E-4F89-B4FC-463E08277F21}|DesafioArquiteturaSoftware.Tests\\DesafioArquiteturaSoftware.Tests.csproj|d:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\desafioarquiteturasoftware.tests\\domain\\financialtransactiontests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ADE1212-C71E-4F89-B4FC-463E08277F21}|DesafioArquiteturaSoftware.Tests\\DesafioArquiteturaSoftware.Tests.csproj|solutionrelative:desafioarquiteturasoftware.tests\\domain\\financialtransactiontests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DeleteFinancialTransactionHandlerTests.cs",
+              "DocumentMoniker": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Tests\\Application\\Commands\\DeleteFinancialTransaction\\DeleteFinancialTransactionHandlerTests.cs",
+              "RelativeDocumentMoniker": "DesafioArquiteturaSoftware.Tests\\Application\\Commands\\DeleteFinancialTransaction\\DeleteFinancialTransactionHandlerTests.cs",
+              "ToolTip": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Tests\\Application\\Commands\\DeleteFinancialTransaction\\DeleteFinancialTransactionHandlerTests.cs",
+              "RelativeToolTip": "DesafioArquiteturaSoftware.Tests\\Application\\Commands\\DeleteFinancialTransaction\\DeleteFinancialTransactionHandlerTests.cs",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAcwJIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-29T19:04:44.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UpdateFinancialTransactionHandlerTests.cs",
+              "DocumentMoniker": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Tests\\Application\\Commands\\UpdateFinancialTransaction\\UpdateFinancialTransactionHandlerTests.cs",
+              "RelativeDocumentMoniker": "DesafioArquiteturaSoftware.Tests\\Application\\Commands\\UpdateFinancialTransaction\\UpdateFinancialTransactionHandlerTests.cs",
+              "ToolTip": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Tests\\Application\\Commands\\UpdateFinancialTransaction\\UpdateFinancialTransactionHandlerTests.cs",
+              "RelativeToolTip": "DesafioArquiteturaSoftware.Tests\\Application\\Commands\\UpdateFinancialTransaction\\UpdateFinancialTransactionHandlerTests.cs",
+              "ViewState": "AgIAAPMAAAAAAAAAAAAcwAMBAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-29T19:04:08.137Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CreateFinancialTransactionHandlerTests.cs",
+              "DocumentMoniker": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Tests\\Application\\Commands\\CreateFinancialTransaction\\CreateFinancialTransactionHandlerTests.cs",
+              "RelativeDocumentMoniker": "DesafioArquiteturaSoftware.Tests\\Application\\Commands\\CreateFinancialTransaction\\CreateFinancialTransactionHandlerTests.cs",
+              "ToolTip": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Tests\\Application\\Commands\\CreateFinancialTransaction\\CreateFinancialTransactionHandlerTests.cs",
+              "RelativeToolTip": "DesafioArquiteturaSoftware.Tests\\Application\\Commands\\CreateFinancialTransaction\\CreateFinancialTransactionHandlerTests.cs",
+              "ViewState": "AgIAAPsAAAAAAAAAAAAcwC0BAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-29T19:01:56.852Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IFinancialTransactionRepository.cs",
+              "DocumentMoniker": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Domain\\Interfaces\\IFinancialTransactionRepository.cs",
+              "RelativeDocumentMoniker": "DesafioArquiteturaSoftware.Domain\\Interfaces\\IFinancialTransactionRepository.cs",
+              "ToolTip": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Domain\\Interfaces\\IFinancialTransactionRepository.cs",
+              "RelativeToolTip": "DesafioArquiteturaSoftware.Domain\\Interfaces\\IFinancialTransactionRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-29T19:02:12.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FinancialTransactionRepository.cs",
+              "DocumentMoniker": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Infrastructure\\Data\\Repository\\FinancialTransactionRepository.cs",
+              "RelativeDocumentMoniker": "DesafioArquiteturaSoftware.Infrastructure\\Data\\Repository\\FinancialTransactionRepository.cs",
+              "ToolTip": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Infrastructure\\Data\\Repository\\FinancialTransactionRepository.cs",
+              "RelativeToolTip": "DesafioArquiteturaSoftware.Infrastructure\\Data\\Repository\\FinancialTransactionRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-29T19:02:42.087Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FinancialTransaction.cs",
+              "DocumentMoniker": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Domain\\Entities\\FinancialTransaction.cs",
+              "RelativeDocumentMoniker": "DesafioArquiteturaSoftware.Domain\\Entities\\FinancialTransaction.cs",
+              "ToolTip": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Domain\\Entities\\FinancialTransaction.cs",
+              "RelativeToolTip": "DesafioArquiteturaSoftware.Domain\\Entities\\FinancialTransaction.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAowB8AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-29T19:00:13.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FinancialTransactionTests.cs",
+              "DocumentMoniker": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Tests\\Domain\\FinancialTransactionTests.cs",
+              "RelativeDocumentMoniker": "DesafioArquiteturaSoftware.Tests\\Domain\\FinancialTransactionTests.cs",
+              "ToolTip": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Tests\\Domain\\FinancialTransactionTests.cs",
+              "RelativeToolTip": "DesafioArquiteturaSoftware.Tests\\Domain\\FinancialTransactionTests.cs",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAAwIQAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-29T18:58:47.349Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

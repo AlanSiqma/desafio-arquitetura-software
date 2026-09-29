@@ -29,11 +29,7 @@ public class FinancialTransaction
         decimal amount,
         TransactionType type)
     {
-        if (string.IsNullOrWhiteSpace(description))
-            throw new ArgumentException("Description is required.");
-
-        if (amount <= 0)
-            throw new ArgumentException("Amount must be greater than zero.");
+        Validate(description, amount);
 
         Id = Guid.NewGuid();
         Description = description;
@@ -74,12 +70,11 @@ public class FinancialTransaction
     }
 
     private static void Validate(
-        string description,
-        decimal amount)
+     string description,
+     decimal amount)
     {
         if (string.IsNullOrWhiteSpace(description))
-            throw new ArgumentException(
-                "Description is required.");
+            throw new ArgumentException("Description is required.");
 
         if (description.Length > 200)
             throw new ArgumentException(

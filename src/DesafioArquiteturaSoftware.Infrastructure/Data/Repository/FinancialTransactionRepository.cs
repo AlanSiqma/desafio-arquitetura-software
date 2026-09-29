@@ -23,12 +23,6 @@ public class FinancialTransactionRepository
             cancellationToken);
     }
 
-    public Task SaveChangesAsync(
-        CancellationToken cancellationToken)
-    {
-        return _context.SaveChangesAsync(cancellationToken);
-    }
-
     public async Task<FinancialTransaction?> GetByIdAsync(
        Guid id,
        CancellationToken cancellationToken)

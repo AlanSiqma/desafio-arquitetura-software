@@ -8,10 +8,6 @@ public interface IFinancialTransactionRepository
         FinancialTransaction transaction,
         CancellationToken cancellationToken);
 
-    Task SaveChangesAsync(
-        CancellationToken cancellationToken);
-
-
     Task<FinancialTransaction?> GetByIdAsync(
       Guid id,
       CancellationToken cancellationToken);
