@@ -24,6 +24,8 @@ public class FinancialTransaction
     public DateTime? DeletedAt { get; private set; }
     private FinancialTransaction()
     {
+            Description = string.Empty;
+
     }
 
     public FinancialTransaction(

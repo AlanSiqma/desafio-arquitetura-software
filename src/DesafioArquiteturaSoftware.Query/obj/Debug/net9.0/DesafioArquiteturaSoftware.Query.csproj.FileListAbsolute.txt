@@ -27,7 +27,6 @@ D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoft
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Query\obj\Debug\net9.0\staticwebassets.build.json.cache
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Query\obj\Debug\net9.0\staticwebassets.development.json
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Query\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Query\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Query\obj\Debug\net9.0\DesafioA.2AC06F3B.Up2Date
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Query\obj\Debug\net9.0\DesafioArquiteturaSoftware.Query.dll
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Query\obj\Debug\net9.0\refint\DesafioArquiteturaSoftware.Query.dll
