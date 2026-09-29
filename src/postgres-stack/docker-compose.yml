@@ -1,0 +1,87 @@
+services:
+
+  postgres:
+    image: postgres:17
+    container_name: desafio-postgres
+
+    environment:
+      POSTGRES_DB: desafio_financeiro
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres/init-primary.sh:/docker-entrypoint-initdb.d/init-primary.sh
+
+    command:
+      - postgres
+      - -c
+      - wal_level=replica
+      - -c
+      - max_wal_senders=10
+
+
+  postgres-replica:
+    image: postgres:17
+    container_name: desafio-postgres-replica
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGPASSWORD: replication
+
+    ports:
+      - "5433:5432"
+
+    depends_on:
+      - postgres
+
+    volumes:
+      - postgres_replica_data:/var/lib/postgresql/data
+
+    command:
+      - bash
+      - -c
+      - |
+          echo "Aguardando PostgreSQL primário..."
+
+          until pg_isready -h postgres -p 5432; do
+            sleep 2
+          done
+
+          echo "PostgreSQL primário disponível."
+
+          if [ ! -f /var/lib/postgresql/data/standby.signal ]; then
+
+            echo "Criando base da réplica..."
+
+            rm -rf /var/lib/postgresql/data/*
+
+            PGPASSWORD=replication pg_basebackup \
+              -h postgres \
+              -p 5432 \
+              -U replication \
+              -D /var/lib/postgresql/data \
+              -Fp \
+              -Xs \
+              -P \
+              -R
+
+            echo "Base da réplica criada."
+
+            chown -R postgres:postgres /var/lib/postgresql/data
+            chmod 700 /var/lib/postgresql/data
+
+          fi
+
+          echo "Iniciando PostgreSQL réplica..."
+
+          exec gosu postgres postgres
+
+
+volumes:
+  postgres_data:
+  postgres_replica_data:

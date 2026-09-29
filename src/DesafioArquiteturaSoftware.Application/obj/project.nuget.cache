@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "NEWGkEVFMTI=",
+  "success": true,
+  "projectFilePath": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Application\\DesafioArquiteturaSoftware.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\alans\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.20\\microsoft.extensions.dependencyinjection.abstractions.9.0.20.nupkg.sha512"
+  ],
+  "logs": []
+}

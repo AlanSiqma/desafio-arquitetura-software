@@ -1,0 +1,11 @@
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Domain\bin\Debug\net9.0\DesafioArquiteturaSoftware.Domain.deps.json
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Domain\bin\Debug\net9.0\DesafioArquiteturaSoftware.Domain.dll
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Domain\bin\Debug\net9.0\DesafioArquiteturaSoftware.Domain.pdb
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Domain\obj\Debug\net9.0\DesafioArquiteturaSoftware.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Domain\obj\Debug\net9.0\DesafioArquiteturaSoftware.Domain.AssemblyInfoInputs.cache
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Domain\obj\Debug\net9.0\DesafioArquiteturaSoftware.Domain.AssemblyInfo.cs
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Domain\obj\Debug\net9.0\DesafioArquiteturaSoftware.Domain.csproj.CoreCompileInputs.cache
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Domain\obj\Debug\net9.0\DesafioArquiteturaSoftware.Domain.dll
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Domain\obj\Debug\net9.0\refint\DesafioArquiteturaSoftware.Domain.dll
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Domain\obj\Debug\net9.0\DesafioArquiteturaSoftware.Domain.pdb
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Domain\obj\Debug\net9.0\ref\DesafioArquiteturaSoftware.Domain.dll

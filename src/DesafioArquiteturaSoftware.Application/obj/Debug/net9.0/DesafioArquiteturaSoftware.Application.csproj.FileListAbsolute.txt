@@ -1,0 +1,15 @@
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Application\bin\Debug\net9.0\DesafioArquiteturaSoftware.Application.deps.json
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Application\bin\Debug\net9.0\DesafioArquiteturaSoftware.Application.dll
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Application\bin\Debug\net9.0\DesafioArquiteturaSoftware.Application.pdb
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Application\bin\Debug\net9.0\DesafioArquiteturaSoftware.Domain.dll
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Application\bin\Debug\net9.0\DesafioArquiteturaSoftware.Domain.pdb
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Application\obj\Debug\net9.0\DesafioArquiteturaSoftware.Application.csproj.AssemblyReference.cache
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Application\obj\Debug\net9.0\DesafioArquiteturaSoftware.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Application\obj\Debug\net9.0\DesafioArquiteturaSoftware.Application.AssemblyInfoInputs.cache
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Application\obj\Debug\net9.0\DesafioArquiteturaSoftware.Application.AssemblyInfo.cs
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Application\obj\Debug\net9.0\DesafioArquiteturaSoftware.Application.csproj.CoreCompileInputs.cache
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Application\obj\Debug\net9.0\DesafioA.A9810D21.Up2Date
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Application\obj\Debug\net9.0\DesafioArquiteturaSoftware.Application.dll
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Application\obj\Debug\net9.0\refint\DesafioArquiteturaSoftware.Application.dll
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Application\obj\Debug\net9.0\DesafioArquiteturaSoftware.Application.pdb
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Application\obj\Debug\net9.0\ref\DesafioArquiteturaSoftware.Application.dll

@@ -1,0 +1,73 @@
+[
+  {
+    "ContainingType": "DesafioArquiteturaSoftware.Api.Endpoints.FinancialTransactionEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapFinancialTransactionEndpoints\u003Eb__0_0",
+    "RelativePath": "api/transactions",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DesafioArquiteturaSoftware.Api.Contracts.Transactions.CreateFinancialTransactionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DesafioArquiteturaSoftware.Api.Endpoints.FinancialTransactionEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapFinancialTransactionEndpoints\u003Eb__0_1",
+    "RelativePath": "api/transactions/{id:guid}",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "DesafioArquiteturaSoftware.Api.Contracts.Transactions.UpdateFinancialTransactionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DesafioArquiteturaSoftware.Api.Endpoints.FinancialTransactionEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapFinancialTransactionEndpoints\u003Eb__0_2",
+    "RelativePath": "api/transactions/{id:guid}",
+    "HttpMethod": "DELETE",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  }
+]
