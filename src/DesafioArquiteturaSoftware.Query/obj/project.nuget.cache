@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "t4YS8QTqXfI=",
+  "success": true,
+  "projectFilePath": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Query\\DesafioArquiteturaSoftware.Query.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\alans\\.nuget\\packages\\dapper\\2.1.89\\dapper.2.1.89.nupkg.sha512",
+    "C:\\Users\\alans\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.20\\microsoft.aspnetcore.openapi.9.0.20.nupkg.sha512",
+    "C:\\Users\\alans\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.0\\microsoft.extensions.dependencyinjection.abstractions.9.0.0.nupkg.sha512",
+    "C:\\Users\\alans\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.0\\microsoft.extensions.logging.abstractions.9.0.0.nupkg.sha512",
+    "C:\\Users\\alans\\.nuget\\packages\\microsoft.openapi\\1.6.30\\microsoft.openapi.1.6.30.nupkg.sha512",
+    "C:\\Users\\alans\\.nuget\\packages\\npgsql\\10.0.3\\npgsql.10.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

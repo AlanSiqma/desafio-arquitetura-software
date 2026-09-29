@@ -16,7 +16,8 @@ public class UpdateFinancialTransactionHandlerTests
         _unitOfWork;
 
     private readonly UpdateFinancialTransactionHandler _handler;
-
+    private static readonly Guid AccountId =
+    Guid.Parse("11111111-1111-1111-1111-111111111111");
     public UpdateFinancialTransactionHandlerTests()
     {
         _transactionRepository =
@@ -34,6 +35,7 @@ public class UpdateFinancialTransactionHandlerTests
     public async Task HandleAsync_ShouldUpdateTransaction_WhenTransactionExists()
     {
         var transaction = new FinancialTransaction(
+            AccountId,
             "Aluguel",
             2000,
             TransactionType.Debit);
@@ -134,6 +136,7 @@ public class UpdateFinancialTransactionHandlerTests
     public async Task HandleAsync_ShouldThrow_WhenAmountIsInvalid()
     {
         var transaction = new FinancialTransaction(
+            AccountId,
             "Aluguel",
             2000,
             TransactionType.Debit);
@@ -174,6 +177,7 @@ public class UpdateFinancialTransactionHandlerTests
     public async Task HandleAsync_ShouldPropagateConcurrencyConflict()
     {
         var transaction = new FinancialTransaction(
+            AccountId,
             "Aluguel",
             2000,
             TransactionType.Debit);
@@ -235,6 +239,7 @@ public class UpdateFinancialTransactionHandlerTests
     public async Task HandleAsync_ShouldRollbackAndRethrow_WhenSaveChangesFails()
     {
         var transaction = new FinancialTransaction(
+            AccountId,
             "Aluguel",
             2000,
             TransactionType.Debit);

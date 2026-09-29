@@ -116,6 +116,7 @@ D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoft
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\DesafioArquiteturaSoftware.Api.AssemblyInfo.cs
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\DesafioArquiteturaSoftware.Api.csproj.CoreCompileInputs.cache
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\DesafioArquiteturaSoftware.Api.MvcApplicationPartsAssemblyInfo.cache
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\DesafioArquiteturaSoftware.Api.sourcelink.json
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\rjimswa.dswa.cache.json
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
@@ -124,11 +125,10 @@ D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoft
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\staticwebassets.build.json.cache
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\staticwebassets.development.json
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\DesafioA.EE50F2AF.Up2Date
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\DesafioArquiteturaSoftware.Api.dll
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\refint\DesafioArquiteturaSoftware.Api.dll
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\DesafioArquiteturaSoftware.Api.pdb
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\DesafioArquiteturaSoftware.Api.genruntimeconfig.cache
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\ref\DesafioArquiteturaSoftware.Api.dll
-D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
-D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Api\obj\Debug\net9.0\DesafioArquiteturaSoftware.Api.sourcelink.json

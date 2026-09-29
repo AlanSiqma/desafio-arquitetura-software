@@ -48,6 +48,7 @@ public static class FinancialTransactionEndpoints
                 }
 
                 var command = new CreateFinancialTransactionCommand(
+                    request.AccountId,
                     request.Description,
                     request.Amount,
                     request.Type,

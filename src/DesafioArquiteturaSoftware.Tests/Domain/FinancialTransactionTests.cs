@@ -5,10 +5,14 @@ namespace DesafioArquiteturaSoftware.Tests.Domain;
 
 public class FinancialTransactionTests
 {
+    private static readonly Guid AccountId =
+    Guid.Parse("11111111-1111-1111-1111-111111111111");
+
     [Fact]
     public void Constructor_ShouldCreateTransaction_WhenDataIsValid()
     {
         var transaction = new FinancialTransaction(
+            AccountId,
             "Aluguel",
             2000,
             TransactionType.Debit);
@@ -28,6 +32,7 @@ public class FinancialTransactionTests
     {
         var exception = Assert.Throws<ArgumentException>(() =>
             new FinancialTransaction(
+                AccountId,
                 "",
                 100,
                 TransactionType.Credit));
@@ -44,6 +49,7 @@ public class FinancialTransactionTests
 
         var exception = Assert.Throws<ArgumentException>(() =>
             new FinancialTransaction(
+                AccountId,
                 description,
                 100,
                 TransactionType.Credit));
@@ -58,6 +64,7 @@ public class FinancialTransactionTests
     {
         var exception = Assert.Throws<ArgumentException>(() =>
             new FinancialTransaction(
+                AccountId,
                 "Teste",
                 0,
                 TransactionType.Credit));
@@ -72,6 +79,7 @@ public class FinancialTransactionTests
     {
         var exception = Assert.Throws<ArgumentException>(() =>
             new FinancialTransaction(
+                AccountId,
                 "Teste",
                 -100,
                 TransactionType.Credit));
@@ -85,6 +93,7 @@ public class FinancialTransactionTests
     public void Update_ShouldChangeTransactionData()
     {
         var transaction = new FinancialTransaction(
+            AccountId,
             "Aluguel",
             2000,
             TransactionType.Debit);
@@ -110,6 +119,7 @@ public class FinancialTransactionTests
     public void Update_ShouldThrow_WhenTransactionIsDeleted()
     {
         var transaction = new FinancialTransaction(
+            AccountId,
             "Aluguel",
             2000,
             TransactionType.Debit);
@@ -131,6 +141,7 @@ public class FinancialTransactionTests
     public void Delete_ShouldMarkTransactionAsDeleted()
     {
         var transaction = new FinancialTransaction(
+            AccountId,
             "Aluguel",
             2000,
             TransactionType.Debit);
@@ -149,6 +160,7 @@ public class FinancialTransactionTests
     public void Delete_ShouldBeIdempotent()
     {
         var transaction = new FinancialTransaction(
+            AccountId,
             "Aluguel",
             2000,
             TransactionType.Debit);

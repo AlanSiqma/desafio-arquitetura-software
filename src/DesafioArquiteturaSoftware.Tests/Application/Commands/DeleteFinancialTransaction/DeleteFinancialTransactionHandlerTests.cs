@@ -15,7 +15,8 @@ public class DeleteFinancialTransactionHandlerTests
         _unitOfWork;
 
     private readonly DeleteFinancialTransactionHandler _handler;
-
+    private static readonly Guid AccountId =
+    Guid.Parse("11111111-1111-1111-1111-111111111111");
     public DeleteFinancialTransactionHandlerTests()
     {
         _transactionRepository =
@@ -33,6 +34,7 @@ public class DeleteFinancialTransactionHandlerTests
     public async Task HandleAsync_ShouldDeleteTransaction_WhenTransactionExists()
     {
         var transaction = new FinancialTransaction(
+            AccountId,
             "Aluguel",
             2000,
             TransactionType.Debit);
@@ -123,6 +125,7 @@ public class DeleteFinancialTransactionHandlerTests
     public async Task HandleAsync_ShouldRollbackAndRethrow_WhenSaveChangesFails()
     {
         var transaction = new FinancialTransaction(
+            AccountId,
             "Aluguel",
             2000,
             TransactionType.Debit);

@@ -27,6 +27,9 @@ namespace DesafioArquiteturaSoftware.Infrastructure.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid");
 
+                    b.Property<Guid>("AccountId")
+                        .HasColumnType("uuid");
+
                     b.Property<decimal>("Amount")
                         .HasPrecision(18, 2)
                         .HasColumnType("numeric(18,2)");
@@ -56,6 +59,9 @@ namespace DesafioArquiteturaSoftware.Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AccountId")
+                        .HasDatabaseName("ix_financial_transactions_account_id");
 
                     b.ToTable("financial_transactions", (string)null);
                 });

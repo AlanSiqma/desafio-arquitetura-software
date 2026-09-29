@@ -6,6 +6,8 @@ public class FinancialTransaction
 {
     public Guid Id { get; private set; }
 
+    public Guid AccountId { get; private set; }
+
     public string Description { get; private set; }
 
     public decimal Amount { get; private set; }
@@ -25,12 +27,19 @@ public class FinancialTransaction
     }
 
     public FinancialTransaction(
+        Guid accountId,
         string description,
         decimal amount,
         TransactionType type)
     {
-        Validate(description, amount);
+        if (accountId == Guid.Empty)
+        {
+            throw new ArgumentException(
+                "AccountId is required.");
+        }
 
+        Validate(description, amount);
+        AccountId = accountId;
         Id = Guid.NewGuid();
         Description = description;
         Amount = amount;

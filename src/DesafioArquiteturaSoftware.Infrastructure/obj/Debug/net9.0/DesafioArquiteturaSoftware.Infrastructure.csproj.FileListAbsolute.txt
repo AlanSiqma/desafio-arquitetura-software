@@ -11,10 +11,10 @@ D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoft
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Infrastructure\obj\Debug\net9.0\DesafioArquiteturaSoftware.Infrastructure.AssemblyInfoInputs.cache
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Infrastructure\obj\Debug\net9.0\DesafioArquiteturaSoftware.Infrastructure.AssemblyInfo.cs
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Infrastructure\obj\Debug\net9.0\DesafioArquiteturaSoftware.Infrastructure.csproj.CoreCompileInputs.cache
+D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Infrastructure\obj\Debug\net9.0\DesafioArquiteturaSoftware.Infrastructure.sourcelink.json
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Infrastructure\obj\Debug\net9.0\DesafioA.322E562A.Up2Date
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Infrastructure\obj\Debug\net9.0\DesafioArquiteturaSoftware.Infrastructure.dll
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Infrastructure\obj\Debug\net9.0\refint\DesafioArquiteturaSoftware.Infrastructure.dll
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Infrastructure\obj\Debug\net9.0\DesafioArquiteturaSoftware.Infrastructure.pdb
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Infrastructure\obj\Debug\net9.0\DesafioArquiteturaSoftware.Infrastructure.genruntimeconfig.cache
 D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Infrastructure\obj\Debug\net9.0\ref\DesafioArquiteturaSoftware.Infrastructure.dll
-D:\projetos\visualstudio\desafio-arquitetura-software\src\DesafioArquiteturaSoftware.Infrastructure\obj\Debug\net9.0\DesafioArquiteturaSoftware.Infrastructure.sourcelink.json

@@ -39,6 +39,7 @@ public sealed class CreateFinancialTransactionHandler
         var requestHash = RequestHash.Calculate(
             new
             {
+                command.AccountId,
                 command.Description,
                 command.Amount,
                 command.Type
@@ -59,6 +60,7 @@ public sealed class CreateFinancialTransactionHandler
         }
 
         var transaction = new FinancialTransaction(
+            command.AccountId,
             command.Description,
             command.Amount,
             command.Type);

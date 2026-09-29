@@ -21,7 +21,8 @@ public class CreateFinancialTransactionHandlerTests
         _unitOfWork;
 
     private readonly CreateFinancialTransactionHandler _handler;
-
+    private static readonly Guid AccountId =
+    Guid.Parse("11111111-1111-1111-1111-111111111111");
     public CreateFinancialTransactionHandlerTests()
     {
         _transactionRepository = new Mock<IFinancialTransactionRepository>();
@@ -38,6 +39,7 @@ public class CreateFinancialTransactionHandlerTests
     public async Task HandleAsync_ShouldCreateTransaction_WhenIdempotencyKeyDoesNotExist()
     {
         var command = new CreateFinancialTransactionCommand(
+            AccountId,
             "Aluguel",
             2000,
             TransactionType.Debit,
@@ -93,6 +95,7 @@ public class CreateFinancialTransactionHandlerTests
     public async Task HandleAsync_ShouldReturnExistingResourceId_WhenSameKeyAndSameRequest()
     {
         var command = new CreateFinancialTransactionCommand(
+            AccountId,
             "Aluguel",
             2000,
             TransactionType.Debit,
@@ -103,6 +106,7 @@ public class CreateFinancialTransactionHandlerTests
         var requestHash = RequestHash.Calculate(
             new
             {
+                command.AccountId,
                 command.Description,
                 command.Amount,
                 command.Type
@@ -157,6 +161,7 @@ public class CreateFinancialTransactionHandlerTests
     public async Task HandleAsync_ShouldThrow_WhenSameKeyIsUsedWithDifferentRequest()
     {
         var command = new CreateFinancialTransactionCommand(
+            AccountId,
             "Aluguel",
             2000,
             TransactionType.Debit,
@@ -199,6 +204,7 @@ public class CreateFinancialTransactionHandlerTests
     public async Task HandleAsync_ShouldReturnExistingResourceId_WhenUniqueKeyConflictOccurs()
     {
         var command = new CreateFinancialTransactionCommand(
+            AccountId,
             "Aluguel",
             2000,
             TransactionType.Debit,
@@ -209,6 +215,7 @@ public class CreateFinancialTransactionHandlerTests
         var requestHash = RequestHash.Calculate(
             new
             {
+                command.AccountId,
                 command.Description,
                 command.Amount,
                 command.Type
@@ -258,6 +265,7 @@ public class CreateFinancialTransactionHandlerTests
     public async Task HandleAsync_ShouldRollbackAndRethrow_WhenUnexpectedErrorOccurs()
     {
         var command = new CreateFinancialTransactionCommand(
+            AccountId,
             "Aluguel",
             2000,
             TransactionType.Debit,

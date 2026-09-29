@@ -14,8 +14,15 @@ public class FinancialTransactionConfiguration
 
         builder.HasKey(x => x.Id);
 
+
         builder.Property(x => x.Id)
             .ValueGeneratedNever();
+
+        builder.Property(x => x.AccountId)
+            .IsRequired();
+
+        builder.HasIndex(x => x.AccountId)
+            .HasDatabaseName("ix_financial_transactions_account_id");
 
         builder.Property(x => x.Description)
             .HasMaxLength(200)
