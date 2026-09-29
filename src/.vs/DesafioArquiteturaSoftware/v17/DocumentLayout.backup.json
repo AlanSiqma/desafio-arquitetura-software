@@ -1,12 +1,71 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{54CB966D-1966-4D6B-A87C-AD95E3FBD6B2}|DesafioArquiteturaSoftware.Query\\DesafioArquiteturaSoftware.Query.csproj|d:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\desafioarquiteturasoftware.query\\repositories\\accountbalancerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54CB966D-1966-4D6B-A87C-AD95E3FBD6B2}|DesafioArquiteturaSoftware.Query\\DesafioArquiteturaSoftware.Query.csproj|solutionrelative:desafioarquiteturasoftware.query\\repositories\\accountbalancerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54CB966D-1966-4D6B-A87C-AD95E3FBD6B2}|DesafioArquiteturaSoftware.Query\\DesafioArquiteturaSoftware.Query.csproj|d:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\desafioarquiteturasoftware.query\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{54CB966D-1966-4D6B-A87C-AD95E3FBD6B2}|DesafioArquiteturaSoftware.Query\\DesafioArquiteturaSoftware.Query.csproj|solutionrelative:desafioarquiteturasoftware.query\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54CB966D-1966-4D6B-A87C-AD95E3FBD6B2}|DesafioArquiteturaSoftware.Query\\DesafioArquiteturaSoftware.Query.csproj|d:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\desafioarquiteturasoftware.query\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54CB966D-1966-4D6B-A87C-AD95E3FBD6B2}|DesafioArquiteturaSoftware.Query\\DesafioArquiteturaSoftware.Query.csproj|solutionrelative:desafioarquiteturasoftware.query\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccountBalanceRepository.cs",
+              "DocumentMoniker": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Query\\Repositories\\AccountBalanceRepository.cs",
+              "RelativeDocumentMoniker": "DesafioArquiteturaSoftware.Query\\Repositories\\AccountBalanceRepository.cs",
+              "ToolTip": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Query\\Repositories\\AccountBalanceRepository.cs",
+              "RelativeToolTip": "DesafioArquiteturaSoftware.Query\\Repositories\\AccountBalanceRepository.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-29T19:48:28.195Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Query\\appsettings.json",
+              "RelativeDocumentMoniker": "DesafioArquiteturaSoftware.Query\\appsettings.json",
+              "ToolTip": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Query\\appsettings.json",
+              "RelativeToolTip": "DesafioArquiteturaSoftware.Query\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-29T19:47:09.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Query\\Program.cs",
+              "RelativeDocumentMoniker": "DesafioArquiteturaSoftware.Query\\Program.cs",
+              "ToolTip": "D:\\projetos\\visualstudio\\desafio-arquitetura-software\\src\\DesafioArquiteturaSoftware.Query\\Program.cs",
+              "RelativeToolTip": "DesafioArquiteturaSoftware.Query\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-29T19:45:39.815Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

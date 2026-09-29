@@ -1,0 +1,228 @@
+{
+  "info": {
+    "_postman_id": "7d3e4a1c-7e9b-4c1e-9a3a-0b8e4c2d7f11",
+    "name": "Desafio Arquitetura Software",
+    "description": "Collection para testes dos microserviços de escrita e consulta do desafio de arquitetura.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "writeUrl",
+      "value": "https://localhost:7195"
+    },
+    {
+      "key": "queryUrl",
+      "value": "https://localhost:7256"
+    },
+    {
+      "key": "accountId",
+      "value": "00000000-0000-0000-0000-000000000001"
+    },
+    {
+      "key": "transactionId",
+      "value": ""
+    },
+    {
+      "key": "idempotencyKey",
+      "value": "{{$guid}}"
+    }
+  ],
+  "item": [
+    {
+      "name": "Write API",
+      "item": [
+        {
+          "name": "Create Transaction - Credit",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "const body = pm.response.json();",
+                  "if (body.resourceId) {",
+                  "    pm.collectionVariables.set('transactionId', body.resourceId);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Idempotency-Key",
+                "value": "{{$guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountId\": \"{{accountId}}\",\n  \"description\": \"Deposito inicial\",\n  \"amount\": 1000.00,\n  \"type\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{writeUrl}}/api/transactions"
+          }
+        },
+        {
+          "name": "Create Transaction - Debit",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Idempotency-Key",
+                "value": "{{$guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountId\": \"{{accountId}}\",\n  \"description\": \"Pagamento\",\n  \"amount\": 250.00,\n  \"type\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{writeUrl}}/api/transactions"
+          }
+        },
+        {
+          "name": "Update Transaction",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 204', function () {",
+                  "    pm.response.to.have.status(204);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Pagamento atualizado\",\n  \"amount\": 200.00,\n  \"type\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{writeUrl}}/api/transactions/{{transactionId}}"
+          }
+        },
+        {
+          "name": "Delete Transaction",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 204', function () {",
+                  "    pm.response.to.have.status(204);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "url": "{{writeUrl}}/api/transactions/{{transactionId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Query API",
+      "item": [
+        {
+          "name": "Get Current Account Balance",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const body = pm.response.json();",
+                  "pm.test('Response contains accountId', function () {",
+                  "    pm.expect(body.accountId).to.exist;",
+                  "});",
+                  "pm.test('Response contains balance', function () {",
+                  "    pm.expect(body.balance).to.exist;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{queryUrl}}/api/accounts/{{accountId}}/balance"
+          }
+        },
+        {
+          "name": "Get Account Balance At",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{queryUrl}}/api/accounts/{{accountId}}/balance?at=2026-01-01T00:00:00Z"
+          }
+        }
+      ]
+    }
+  ]
+}

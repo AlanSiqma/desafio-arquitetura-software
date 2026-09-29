@@ -21,24 +21,24 @@ public sealed class AccountBalanceRepository
         CancellationToken cancellationToken)
     {
         const string sql = """
-            SELECT
-                @AccountId AS "AccountId",
-                COALESCE(
-                    SUM(
-                        CASE
-                            WHEN type = 1 THEN amount
-                            WHEN type = 2 THEN -amount
-                            ELSE 0
-                        END
-                    ),
-                    0
-                ) AS "Balance",
-                @At AS "AsOf"
-            FROM financial_transactions
-            WHERE account_id = @AccountId
-              AND is_deleted = false
-              AND created_at <= @At;
-            """;
+                        SELECT
+                            @AccountId AS "AccountId",
+                            COALESCE(
+                                SUM(
+                                    CASE
+                                        WHEN "Type" = 1 THEN "Amount"
+                                        WHEN "Type" = 2 THEN -"Amount"
+                                        ELSE 0
+                                    END
+                                ),
+                                0
+                            ) AS "Balance",
+                            @At AS "AsOf"
+                        FROM financial_transactions
+                        WHERE "AccountId" = @AccountId
+                          AND "IsDeleted" = false
+                          AND "CreatedAt" <= @At;
+                        """;
 
         using var connection =
             _connectionFactory.CreateConnection();
